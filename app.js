@@ -5,6 +5,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+try {
+  CONFIG = require('./config.json');
+} catch (ex) {
+  CONFIG = {
+    "pusherAppId": process.env.PUSHER_APP_ID,
+    "pusherKey": process.env.PUSHER_KEY,
+    "pusherSecret": process.env.PUSHER_SECRET,
+  }
+}
+
 var index = require('./routes/index'),
     pusher = require('./routes/pusher');
 
