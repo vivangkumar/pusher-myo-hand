@@ -31,6 +31,7 @@ console.log(handChan);
 
  function createNewCharacter(pos, playerID) {
   var player = game.add.sprite(32, pos, 'dude');
+  player.frame = 5;
   game.physics.arcade.enable(player);
 
   player.body.collideWorldBounds = true;
