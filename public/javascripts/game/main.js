@@ -2,12 +2,11 @@
  * Main game file.
  *
  */
- var pusher = new Pusher(pusherKey, {authEndpoint: '/pusher/auth'});
- var handChan = pusher.subscribe('private-hand-events');
- var locChan = pusher.subscribe('private-player-locs');
+ var sessionKey = window.location.pathname.split('/')[2];
 
-console.log(pusher);
-console.log(handChan);
+ var pusher = new Pusher(pusherKey, {authEndpoint: '/pusher/auth'});
+ var handChan = pusher.subscribe('private-hand-events-' + sessionKey);
+ var locChan = pusher.subscribe('private-player-locs-' + sessionKey);
 
  var game = new Phaser.Game(
   $(window).width(),

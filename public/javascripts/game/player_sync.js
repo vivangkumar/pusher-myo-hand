@@ -1,6 +1,5 @@
 
 function updatePlayerLoc(p) {
-  console.log("UPDATING")
   locChan.trigger('client-update', {sessionID: pusher.sessionID, pos: p});
 }
 
