@@ -45,6 +45,7 @@ console.log(handChan);
   game.load.spritesheet('dude', '../images/game-assets/dude.png', 32, 48);
   game.load.image('sky', '../images/game-assets/sky.png');
   game.load.image('ground', '../images/game-assets/platform.png');
+  game.load.image('hand', '../images/game-assets/hand.png');
 
  }
 
@@ -60,6 +61,7 @@ console.log(handChan);
   var ground = platforms.create(0, game.world.height - 30, 'ground');
   ground.scale.setTo(4, 4);
   ground.body.immovable = true;
+  game.add.sprite(game.world.width - 170, 100, 'hand');
  }
 
  function update() {
