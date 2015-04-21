@@ -1,0 +1,10 @@
+{
+  "name": "pusher-myo-hand",
+  "version": "0.0.0",
+  "homepage": "https://github.com/vivangkumar/pusher-myo-hand",
+  "license": "MIT",
+  "dependencies": {
+    "myo.js": "thalmiclabs/myo.js",
+    "pusher-js": "pusher/pusher-js"
+  }
+}

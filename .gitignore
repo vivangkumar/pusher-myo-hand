@@ -28,3 +28,5 @@ node_modules
 
 # Ignore our custom config
 config.json
+
+public/javascripts/lib
