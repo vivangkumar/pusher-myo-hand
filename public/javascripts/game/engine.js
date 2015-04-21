@@ -34,7 +34,7 @@ function loop() {
   state.playerLocations[pusher.sessionID]["x"] = playerState.x;
   state.playerLocations[pusher.sessionID]["y"] = playerState.y;
 
-  if (time - prevSyncTime > 1000) {
+  if (time - prevSyncTime > 100) {
     updatePlayerLoc(playerState);
     prevSyncTime = time;
   }
