@@ -61,7 +61,7 @@ console.log(handChan);
   var ground = platforms.create(0, game.world.height - 30, 'ground');
   ground.scale.setTo(4, 4);
   ground.body.immovable = true;
-  game.add.sprite(game.world.width - 170, 100, 'hand');
+  game.add.sprite(game.world.width - 70, 170, 'hand');
  }
 
  function update() {
