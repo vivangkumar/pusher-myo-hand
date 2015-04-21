@@ -2,6 +2,14 @@ extends layout
 
 block content
   div(id='game-canvas')
-
+  script.
+    var pusherKey = "#{pusherKey}";
+  script(src='/javascripts/lib/pusher-js/dist/pusher.js')
+  script(src='/javascripts/lib/myo.js/myo.js')
   script(src='/javascripts/lib/phaser/build/phaser.min.js')
   script(src='/javascripts/game/main.js')
+  script(src='/javascripts/game/myo-hand.js')
+  script(src='/javascripts/game/input.js')
+  script(src='/javascripts/game/physics.js')
+  script(src='/javascripts/game/player_sync.js')
+  script(src='/javascripts/game/engine.js')

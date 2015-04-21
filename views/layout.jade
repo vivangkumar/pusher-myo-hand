@@ -9,22 +9,4 @@ html
   body
     block content
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')
-  script(src='javascripts/lib/myo.js/myo.js')
-  script(src='javascripts/lib/pusher-js/dist/pusher.js')
-  script.
-    var pusher = new Pusher("#{pusherKey}", {authEndpoint: '/pusher/auth'});
-    var handChan = pusher.subscribe('private-hand-events');
-    var locChan = pusher.subscribe('private-player-locs');
   script(src='/javascripts/main.js')
-  script(src='javascripts/myo-hand.js')
-  script(src='javascripts/input.js')
-  script(src='javascripts/physics.js')
-  script(src='javascripts/player_sync.js')
-  script(src='javascripts/engine.js')
-  script.
-    handChan.bind('pusher:subscription_succeeded', function () {
-      locChan.bind('pusher:subscription_succeeded', function () {
-        engine();
-      })
-    });
-

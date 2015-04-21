@@ -2,6 +2,9 @@
  * Main game file.
  *
  */
+ var pusher = new Pusher(pusherKey, {authEndpoint: '/pusher/auth'});
+ var handChan = pusher.subscribe('private-hand-events');
+ var locChan = pusher.subscribe('private-player-locs');
 
  var game = new Phaser.Game(
   $(window).width(),
@@ -11,7 +14,19 @@
   { preload: preload, create: create, update: update }
  );
 
- function createNewCharacter(pos) {
+ var globalPlayers = {};
+
+ function render(state) {
+  for (var playerID in state.playerLocations) {
+   if (!globalPlayers[playerID]) {
+    createNewCharacter(game.world.height - 80, playerID);
+   }
+   globalPlayers[playerID].x = state.playerLocations[playerID].x;
+   globalPlayers[playerID].y = state.playerLocations[playerID].y;
+  }
+ }
+
+ function createNewCharacter(pos, playerID) {
   var player = game.add.sprite(32, pos, 'dude');
   game.physics.arcade.enable(player);
 
@@ -19,6 +34,8 @@
 
   player.animations.add('left', [0, 1, 2, 3], 10, true);
   player.animations.add('right', [5, 6, 7, 8], 10, true);
+
+  globalPlayers[playerID] = player;
  }
 
  function preload() {
@@ -40,7 +57,6 @@
   var ground = platforms.create(0, game.world.height - 30, 'ground');
   ground.scale.setTo(4, 4);
   ground.body.immovable = true;
-  createNewCharacter(game.world.height - 80);
  }
 
  function update() {
