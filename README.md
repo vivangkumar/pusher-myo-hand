@@ -1,4 +1,4 @@
-## pusher-my-hand
+## pusher-myo-hand
 
 Pusher Hackathon game using Myo
 
