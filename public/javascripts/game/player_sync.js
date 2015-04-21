@@ -5,6 +5,8 @@ function updatePlayerLoc(p) {
 }
 
 locChan.bind('client-update', function(data) {
-  state.playerLocations[data.sessionID]["x"] = data.pos.x;
-  state.playerLocations[data.sessionID]["y"] = data.pos.y;
+  state.playerLocations[data.sessionID] = {
+    x: data.pos.x,
+    y: data.pos.y
+  };
 });
