@@ -1,6 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -8,12 +8,16 @@ a {
 }
 
 .row-centered {
-    text-align:center;
-    margin-bottom: 50px;
+  text-align:center;
+  margin-bottom: 50px;
 }
 .col-centered {
-    display:inline-block;
-    float:none;
-    /* reset the text-align */
-    text-align:center;
+  display:inline-block;
+  float:none;
+  /* reset the text-align */
+  text-align:center;
+}
+
+#code-box {
+  font-size: 20px;
 }

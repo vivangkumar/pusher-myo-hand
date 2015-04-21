@@ -15,8 +15,9 @@ try {
   }
 }
 
-var index = require('./routes/index'),
-    pusher = require('./routes/pusher');
+var index = require('./routes/index')
+  , pusher = require('./routes/pusher')
+  , game = require('./routes/game');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/pusher', pusher);
+app.use('/game', game);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
