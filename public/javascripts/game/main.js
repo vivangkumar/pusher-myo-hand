@@ -6,6 +6,9 @@
  var handChan = pusher.subscribe('private-hand-events');
  var locChan = pusher.subscribe('private-player-locs');
 
+console.log(pusher);
+console.log(handChan);
+
  var game = new Phaser.Game(
   $(window).width(),
   300,

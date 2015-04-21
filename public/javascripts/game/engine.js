@@ -1,11 +1,10 @@
 var state = {
-  "playerLocations": {
-    1: {
-      "x": 0,
-      "y": 0
-    }
-  },
+  "playerLocations": { },
   "handAction": null
+};
+state.playerLocations[pusher.sessionID] = {
+  "x": 0,
+  "y": 0
 };
 
 var playerState = {
@@ -21,10 +20,10 @@ var input = {
 };
 
 var prevTime = Date.now();
+var prevSyncTime = Date.now();
 function loop() {
-  console.log("stepping");
-  console.log(state);
-  console.log(playerState);
+  //console.log(state);
+  //console.log(playerState);
   var time = Date.now();
   var delta = (prevTime - time) / 10;
   prevTime = time;
@@ -32,9 +31,13 @@ function loop() {
   playerState = gravity(playerState, delta);
   playerState = physics(playerState, delta);
   playerState = walk(playerState, input);
-  state.playerLocations[1]["x"] = playerState.x;
-  state.playerLocations[1]["y"] = playerState.y;
-  //updatePlayerLoc(playerState);
+  state.playerLocations[pusher.sessionID]["x"] = playerState.x;
+  state.playerLocations[pusher.sessionID]["y"] = playerState.y;
+
+  if (time - prevSyncTime > 1000) {
+    updatePlayerLoc(playerState);
+    prevSyncTime = time;
+  }
   render(state);
 }
 
