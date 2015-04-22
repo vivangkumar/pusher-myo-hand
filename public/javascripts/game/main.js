@@ -76,21 +76,24 @@
   ground.scale.setTo(4, 4);
   ground.body.immovable = true;
   hand = game.add.sprite(game.world.width - 70, 170, 'hand');
+  console.log(hand);
   cursors = game.input.keyboard.createCursorKeys();
  }
 
  function update() {
   setTimeout(function() {
-    var currentPlayer = globalPlayers[pusher.sessionID];
+    if (myoPlayer == "false") {
+      var currentPlayer = globalPlayers[pusher.sessionID];
 
-    if (cursors.left.isDown) {
-      currentPlayer.animations.play('left');
-    } else if (cursors.right.isDown) {
-      currentPlayer.animations.play('right');
-    } else {
-      //  Stand still
-      currentPlayer.animations.stop();
-      currentPlayer.frame = 4;
+      if (cursors.left.isDown) {
+        currentPlayer.animations.play('left');
+      } else if (cursors.right.isDown) {
+        currentPlayer.animations.play('right');
+      } else {
+        //  Stand still
+        currentPlayer.animations.stop();
+        currentPlayer.frame = 4;
+      }
     }
   }, 1000);
  }
