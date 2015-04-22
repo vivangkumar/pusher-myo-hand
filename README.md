@@ -25,3 +25,5 @@ Pusher Hackathon game using Myo
 - Can't use https endpoint since the **myo.js** library does not support it.
 - This whole thing is quite experimental and it may or may not work as intended.
 - Pusher is used to sync multiple players in real time.
+
+**THIS REPO CONTAINS SOME HORRIBLE CODE. READ AT YOUR OWN RISK**
