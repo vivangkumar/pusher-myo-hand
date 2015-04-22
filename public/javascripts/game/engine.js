@@ -42,7 +42,7 @@ function loop() {
       delete state.playerLocations[pusher.sessionID];
       killPlayer();
       hideCharacter(pusher.sessionID);
-      alert("DEAD!");
+      setTimeout(function () { alert("DEAD")}, 50);
     }
     if (time - prevSyncTime > 1000) {
       updatePlayerLoc(playerState);
