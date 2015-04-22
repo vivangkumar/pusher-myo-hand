@@ -82,7 +82,7 @@
 
  function update() {
   setTimeout(function() {
-    if (myoPlayer == "false") {
+    if (state.playerLocations[pusher.sessionID] && myoPlayer == "false") {
       var currentPlayer = globalPlayers[pusher.sessionID];
 
       if (cursors.left.isDown) {
