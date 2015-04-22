@@ -1,7 +1,7 @@
 var state = {
   "playerLocations": { },
   "handLocation": {
-    "x": 500,
+    "x": 900,
     "y": 100
   }
 };
