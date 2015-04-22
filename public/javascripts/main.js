@@ -13,9 +13,19 @@
   return text;
  }
 
- function showNewSession() {
+ function newSession() {
   $('#join-session-button').click(function() {
     var sessionKey = _generateSessionKey(12);
+
+    var gameLink = '/game/' + sessionKey ;
+    var htmlToAppend = '<br><br><a href="' + gameLink + '">' + window.location.href + sessionKey + '</p>';
+    $('#code-box').html('Share this link with someone to invite them to your game ' + htmlToAppend);
+  });
+ }
+
+ function playGame() {
+  $('#play-game-button').click(function() {
+    var sessionKey = window.location.pathname.split('/')[2];
     var userName = $('#player-name-input').val();
     var myoPlayer = $('#myo-player-check').val();
     if ($('#myo-player-check').is(':checked')) {
@@ -24,11 +34,11 @@
       var myoPlayer = false;
     }
     var gameLink = '/game/' + sessionKey + '/' + userName + '?myo_player=' + myoPlayer;
-    var htmlToAppend = '<br><br><a href="' + gameLink + '">' + window.location.href + sessionKey + '/' + userName + '?myo_player=' + myoPlayer + '</a></p>';
-    $('#code-box').html('Share this link with someone to invite them to your game ' + htmlToAppend);
+    window.location.href = gameLink;
   });
  }
 
  $(window).load(function() {
-  showNewSession();
+  playGame();
+  newSession();
  });

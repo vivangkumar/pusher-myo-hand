@@ -14,4 +14,11 @@ router.get('/:session/:name', function(req, res, next) {
   });
 });
 
+/* GET home page. */
+router.get('/:session', function(req, res, next) {
+  var session = req.params.session;
+
+  res.render('game-info');
+});
+
 module.exports = router;
