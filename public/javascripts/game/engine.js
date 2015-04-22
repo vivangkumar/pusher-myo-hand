@@ -1,6 +1,9 @@
 var state = {
   "playerLocations": { },
-  "handAction": null
+  "handLocation": {
+    "x": 500,
+    "y": 100
+  }
 };
 state.playerLocations[pusher.sessionID] = {
   "x": 0,
@@ -22,7 +25,7 @@ var input = {
 var prevTime = Date.now();
 var prevSyncTime = Date.now();
 function loop() {
-  //console.log(state);
+  //console.log(state.handLocation.x);
   //console.log(playerState);
   var time = Date.now();
   var delta = (prevTime - time) / 10;
@@ -35,7 +38,7 @@ function loop() {
   state.playerLocations[pusher.sessionID]["y"] = playerState.y;
 
   if (time - prevSyncTime > 100) {
-    updatePlayerLoc(playerState);
+    //updatePlayerLoc(playerState);
     prevSyncTime = time;
   }
   render(state);

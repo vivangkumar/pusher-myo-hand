@@ -25,6 +25,7 @@
    globalPlayers[playerID].x = state.playerLocations[playerID].x;
    globalPlayers[playerID].y = state.playerLocations[playerID].y;
   }
+  hand.x = state.handLocation.x;
  }
 
  function createNewCharacter(pos, playerID) {
@@ -60,7 +61,7 @@
   var ground = platforms.create(0, game.world.height - 30, 'ground');
   ground.scale.setTo(4, 4);
   ground.body.immovable = true;
-  game.add.sprite(game.world.width - 70, 170, 'hand');
+  hand = game.add.sprite(game.world.width - 70, 170, 'hand');
  }
 
  function update() {
