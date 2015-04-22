@@ -12,4 +12,8 @@ handChan.bind('pusher:subscription_succeeded', function() {
     console.log(poseName);
     handChan.trigger('client-pose', {'pose': poseName});
   });
+
+  myMyo.on('accelerometer', function(data) {
+  	console.log(data);
+  });
 });
