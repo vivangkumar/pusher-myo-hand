@@ -9,3 +9,11 @@ locChan.bind('client-update', function(data) {
     y: data.pos.y
   };
 });
+
+function killPlayer(id) {
+  locChan.trigger('client-kill-player', {sessionID: pusher.sessionID});
+}
+
+locChan.bind('client-kill-player', function(data) {
+  delete state.playerLocations[data.sessionID];
+});

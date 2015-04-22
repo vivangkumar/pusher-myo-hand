@@ -37,7 +37,10 @@ function loop() {
     playerState = walk(playerState, input);
     state.playerLocations[pusher.sessionID]["x"] = playerState.x;
     state.playerLocations[pusher.sessionID]["y"] = playerState.y;
-    detectCollisions();
+    if (isCollided()) {
+      delete state.playerLocations[pusher.sessionID];
+      console.log("DEAD!");
+    }
     if (time - prevSyncTime > 1000) {
       updatePlayerLoc(playerState);
       prevSyncTime = time;
@@ -46,15 +49,8 @@ function loop() {
   render(state);
 }
 
-function detectCollisions() {
-  for (var playerID in state.playerLocations) {
-    var playerLoc = state.playerLocations[playerID];
-    var handLoc = state.handLocation;
-    if (distance(playerLoc.x + 14, playerLoc.y + 24, handLoc.x + 35, handLoc.y + 120) < 42) {
-      delete state.playerLocations[playerID];
-      alert("you are dead!");
-    }
-  }
+function isCollided() {
+  return distance(playerState.x + 14, playerState.y + 24, state.handLocation.x + 35, state.handLocation.y + 120) < 42;
 }
 
 function distance(x1, y1, x2, y2) {
