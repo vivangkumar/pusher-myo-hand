@@ -16,8 +16,9 @@
  function showNewSession() {
   $('#join-session-button').click(function() {
     var sessionKey = _generateSessionKey(12);
-    var gameLink = '/game/' + sessionKey;
-    var htmlToAppend = '<br><br><a href="' + gameLink + '">' + window.location.href + sessionKey +'</a></p>';
+    var userName = $('#player-name-input').val();
+    var gameLink = '/game/' + sessionKey + '/' + userName;
+    var htmlToAppend = '<br><br><a href="' + gameLink + '">' + window.location.href + sessionKey + '/' + userName + '</a></p>';
     $('#code-box').html('Share this link with someone to invite them to your game ' + htmlToAppend);
   });
  }

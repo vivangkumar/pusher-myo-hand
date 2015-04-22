@@ -55,10 +55,10 @@
  }
 
  function preload() {
-  game.load.spritesheet('dude', '../images/game-assets/dude.png', 32, 48);
-  game.load.image('sky', '../images/game-assets/sky.png');
-  game.load.image('ground', '../images/game-assets/platform.png');
-  game.load.image('hand', '../images/game-assets/hand.png');
+  game.load.spritesheet('dude', '../../images/game-assets/dude.png', 32, 48);
+  game.load.image('sky', '../../images/game-assets/sky.png');
+  game.load.image('ground', '../../images/game-assets/platform.png');
+  game.load.image('hand', '../../images/game-assets/hand.png');
 
  }
 
