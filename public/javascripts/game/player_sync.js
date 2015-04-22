@@ -22,5 +22,5 @@ function killPlayer() {
 locChan.bind('client-kill-player', function(data) {
   delete state.playerLocations[data.sessionID];
   hideCharacter(data.sessionID);
-  $('.notify').append(data.playerName + ' died!');
+  $('.notify').append('<br>' + data.playerName + ' died!');
 });

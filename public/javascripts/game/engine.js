@@ -48,7 +48,7 @@ function loop() {
         alert("You're dead!");
       }, 50);
     }
-    if (time - prevSyncTime > 1000) {
+    if (time - prevSyncTime > 100) {
       updatePlayerLoc(playerState);
       prevSyncTime = time;
     }
