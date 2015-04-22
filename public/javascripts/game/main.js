@@ -24,7 +24,13 @@
    }
    globalPlayers[playerID].x = state.playerLocations[playerID].x;
    globalPlayers[playerID].y = state.playerLocations[playerID].y;
+   //var hitbox = game.add.graphics(globalPlayers[playerID].x + 14, globalPlayers[playerID].y + 24);
+   //hitbox.lineStyle(1, 0xff0000);
+   //hitbox.drawCircle(0, 0, 1);
   }
+  //var hitbox = game.add.graphics(state.handLocation.x + 35, state.handLocation.y + 120);
+  //hitbox.lineStyle(1, 0xff0000);
+  //hitbox.drawCircle(0, 0, 85);
   hand.x = state.handLocation.x;
  }
 
