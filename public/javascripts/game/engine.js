@@ -6,17 +6,19 @@ var state = {
   }
 };
 
-state.playerLocations[pusher.sessionID] = {
-  "x": 0,
-  "y": 0
-};
+if (myoPlayer == "false") {
+  state.playerLocations[pusher.sessionID] = {
+    "x": 0,
+    "y": 0
+  };
 
-var playerState = {
-  "x": 0,
-  "y": 100,
-  "vx": 0,
-  "vy": 0
-};
+  playerState = {
+    "x": 0,
+    "y": 100,
+    "vx": 0,
+    "vy": 0
+  };
+}
 
 var input = {
   "x": 0,
@@ -28,7 +30,7 @@ var prevSyncTime = Date.now();
 function loop() {
   //console.log(state.handLocation.x);
   //console.log(playerState);
-  if (state.playerLocations[pusher.sessionID]) { // check if player alive
+  if (state.playerLocations[pusher.sessionID] && myoPlayer == "false") { // check if player alive
     var time = Date.now();
     var delta = (prevTime - time) / 10;
     prevTime = time;
@@ -42,7 +44,9 @@ function loop() {
       delete state.playerLocations[pusher.sessionID];
       killPlayer();
       hideCharacter(pusher.sessionID);
-      setTimeout(function () { alert("DEAD")}, 50);
+      setTimeout(function() {
+        alert("You're dead!");
+      }, 50);
     }
     if (time - prevSyncTime > 1000) {
       updatePlayerLoc(playerState);

@@ -17,8 +17,14 @@
   $('#join-session-button').click(function() {
     var sessionKey = _generateSessionKey(12);
     var userName = $('#player-name-input').val();
-    var gameLink = '/game/' + sessionKey + '/' + userName;
-    var htmlToAppend = '<br><br><a href="' + gameLink + '">' + window.location.href + sessionKey + '/' + userName + '</a></p>';
+    var myoPlayer = $('#myo-player-check').val();
+    if ($('#myo-player-check').is(':checked')) {
+      var myoPlayer = true;
+    } else {
+      var myoPlayer = false;
+    }
+    var gameLink = '/game/' + sessionKey + '/' + userName + '?myo_player=' + myoPlayer;
+    var htmlToAppend = '<br><br><a href="' + gameLink + '">' + window.location.href + sessionKey + '/' + userName + '?myo_player=' + myoPlayer + '</a></p>';
     $('#code-box').html('Share this link with someone to invite them to your game ' + htmlToAppend);
   });
  }

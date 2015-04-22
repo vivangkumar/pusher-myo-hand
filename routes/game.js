@@ -5,8 +5,13 @@ var router = express.Router();
 router.get('/:session/:name', function(req, res, next) {
   var session = req.params.session;
   var name = req.params.name;
+  var myoPlayer = req.query.myo_player;
 
-  res.render('game', { pusherKey: CONFIG.pusherKey, playerName: name });
+  res.render('game', {
+  	pusherKey: CONFIG.pusherKey,
+  	playerName: name,
+  	myoPlayer: myoPlayer
+  });
 });
 
 module.exports = router;
