@@ -2,6 +2,7 @@
  * Main game file.
  *
  */
+
  var sessionKey = window.location.pathname.split('/')[2];
  var pusher = new Pusher(pusherKey, {authEndpoint: '/pusher/auth'});
  var handChan = pusher.subscribe('private-hand-events-' + sessionKey);
