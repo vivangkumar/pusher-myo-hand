@@ -40,7 +40,9 @@ function loop() {
     state.playerLocations[pusher.sessionID]["y"] = playerState.y;
     if (isCollided()) {
       delete state.playerLocations[pusher.sessionID];
-      console.log("DEAD!");
+      killPlayer();
+      hideCharacter(pusher.sessionID);
+      alert("DEAD!");
     }
     if (time - prevSyncTime > 1000) {
       updatePlayerLoc(playerState);

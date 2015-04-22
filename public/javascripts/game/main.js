@@ -34,6 +34,11 @@
   hand.x = state.handLocation.x;
  }
 
+ function hideCharacter(playerID) {
+  globalPlayers[playerID].visible = false;
+  delete globalPlayers[playerID];
+ }
+
  function createNewCharacter(pos, playerID) {
   player = game.add.sprite(32, pos, 'dude');
 
