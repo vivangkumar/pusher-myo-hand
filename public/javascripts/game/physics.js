@@ -1,6 +1,6 @@
 function jump(p, input) {
   if (input.y < 0 && p.y == 225) {
-    p.vy = 5
+    p.vy = 6
   }
   return p;
 }
