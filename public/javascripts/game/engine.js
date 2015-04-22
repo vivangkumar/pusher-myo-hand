@@ -5,6 +5,7 @@ var state = {
     "y": 100
   }
 };
+
 state.playerLocations[pusher.sessionID] = {
   "x": 0,
   "y": 0

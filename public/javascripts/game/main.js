@@ -35,7 +35,7 @@
  }
 
  function createNewCharacter(pos, playerID) {
-  var player = game.add.sprite(32, pos, 'dude');
+  player = game.add.sprite(32, pos, 'dude');
 
   player.frame = 0;
   game.physics.arcade.enable(player);
@@ -74,18 +74,19 @@
  }
 
  function update() {
-  for (var pl in globalPlayers) {
+  setTimeout(function() {
+    var currentPlayer = globalPlayers[pusher.sessionID];
 
     if (cursors.left.isDown) {
-      globalPlayers[pl].animations.play('left');
+      currentPlayer.animations.play('left');
     } else if (cursors.right.isDown) {
-      globalPlayers[pl].animations.play('right');
+      currentPlayer.animations.play('right');
     } else {
       //  Stand still
-      globalPlayers[pl].animations.stop();
-      globalPlayers[pl].frame = 4;
+      currentPlayer.animations.stop();
+      currentPlayer.frame = 4;
     }
-  }
+  }, 1000);
  }
 
  function generateHex() {
